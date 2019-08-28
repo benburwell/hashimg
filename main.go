@@ -29,7 +29,7 @@ func main() {
 	}
 
 	seed := hash(*username)
-	img := repeat(generateImage(seed))
+	img := makeBigger(repeat(generateImage(seed)))
 	str, err := encodeImage(img)
 	if err != nil {
 		fmt.Printf("%v\n", err)
@@ -92,10 +92,16 @@ func repeat(img image.Image) image.Image {
 	return newImg
 }
 
-// func makeBigger(img image.Image) image.Image {
-// 	newImg := image.NewNRGBA(image.Rect(0, 0, 200, 200))
-// 	for x := 0; x < 10; x++ {
-// 		for y := 0; y < 10; y++ {
-// 		}
-// 	}
-// }
+func makeBigger(img image.Image) image.Image {
+	newImg := image.NewNRGBA(image.Rect(0, 0, 200, 200))
+	for x := 0; x < 10; x++ {
+		for y := 0; y < 10; y++ {
+			for i := 0; i < 20; i++ {
+				for j := 0; j < 20; j++ {
+					newImg.Set(x*20+i, y*20+j, img.At(x, y))
+				}
+			}
+		}
+	}
+	return newImg
+}
