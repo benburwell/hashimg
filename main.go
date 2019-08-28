@@ -4,12 +4,13 @@ import (
 	"bytes"
 	"crypto/sha256"
 	"encoding/base64"
-	"flag"
-	"fmt"
 	"image"
 	"image/color"
 	"image/png"
 	"regexp"
+
+	"flag"
+	"fmt"
 	"strings"
 )
 
