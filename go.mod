@@ -1,3 +1,3 @@
-module github.com/benburwell/hashimg
+module bnbl.io/hashimg
 
-go 1.12
+go 1.13
